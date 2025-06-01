@@ -3,71 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portfolio</title>
-    <link rel="stylesheet" href="style.css">
+ <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">Ikechukwu Blessing</h1>
-            <nav>
-                <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="container">
+      <h1 class="logo">Ikechukwu Blessing</h1>
+      <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mobileMenu">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>Hello, I'm a Web Developer</h2>
-            <p>I design and build modern websites & applications.</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="container">
+      <h2>Hello, I'm a Web Developer</h2>
+      <p>I design and build modern websites & applications.</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>
-                I'm a passionate web developer with experience in creating responsive and user-friendly websites using HTML, CSS, and JavaScript.
-            </p>
-        </div>
-    </section>
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I'm a passionate web developer with experience in creating responsive and user-friendly websites using HTML, CSS, and JavaScript.
+      </p>
+    </div>
+  </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A short description of the project.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>A short description of the project.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>A short description of the project.</p>
-                </div>
-            </div>
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Project One</h3>
+          <p>A short description of the project.</p>
         </div>
-    </section>
+        <div class="project-card">
+          <h3>Project Two</h3>
+          <p>A short description of the project.</p>
+        </div>
+        <div class="project-card">
+          <h3>Project Three</h3>
+          <p>A short description of the project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="#">ikechukwublessing255@gmail.com</a></p>
-        </div>
-    </section>
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="#">ikechukwublessing255@gmail.com</a></p>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ikechukwu Blessing. All rights reserved.</p>
-        </div>
-    </footer>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Ikechukwu Blessing. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Overlay for mobile menu -->
+  <div class="overlay"></div>
+
+  <!-- Full JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('mobileMenu');
+      const overlay = document.querySelector('.overlay');
+
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        toggle.classList.toggle('open');
+        overlay.classList.toggle('show');
+      });
+
+      overlay.addEventListener('click', () => {
+        nav.classList.remove('active');
+        toggle.classList.remove('open');
+        overlay.classList.remove('show');
+      });
+
+      // Close menu when clicking a nav link
+      const navLinks = document.querySelectorAll('#mobileMenu a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          toggle.classList.remove('open');
+          overlay.classList.remove('show');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
